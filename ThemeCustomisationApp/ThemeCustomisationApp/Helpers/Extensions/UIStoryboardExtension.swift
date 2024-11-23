@@ -26,6 +26,7 @@ extension UIStoryboard {
     enum Storyboard: String {
         case main = "Main"
         case tutorial = "TutorialView"
+        case sideMenu = "SideMenu"
        
         var name: String {
             rawValue

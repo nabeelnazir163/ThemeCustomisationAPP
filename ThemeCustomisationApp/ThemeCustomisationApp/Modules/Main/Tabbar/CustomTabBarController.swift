@@ -5,6 +5,7 @@
 //  Created by Nabeel Nazir on 23/11/2024.
 //
 import UIKit
+import SideMenu
 
 class CustomTabBarController: UIViewController {
     // MARK: - Outlets
@@ -35,6 +36,7 @@ class CustomTabBarController: UIViewController {
         switch state {
         case .home:
             guard let homeVC: HomeViewController = UIStoryboard.instantiate(storyboard: .main) else { return }
+            homeVC.homeViewModel = HomeViewModel()
             newViewController = homeVC
         case .categories:
             guard let catVC: CategoriesViewController = UIStoryboard.instantiate(storyboard: .main) else { return }
@@ -52,5 +54,16 @@ class CustomTabBarController: UIViewController {
         newViewController.view.frame = view.bounds
         newViewController.didMove(toParent: self)
         currentViewController = newViewController
+    }
+    
+    // MARK: - Actions
+    @IBAction func didTapSideMenu(_ sender: Any) {
+        guard let sideMenu: SideMenuViewController = UIStoryboard.instantiate(storyboard: .sideMenu) else { return }
+        let menu = SideMenuNavigationController(rootViewController: sideMenu)
+        menu.leftSide = true
+        menu.menuWidth = view.frame.width
+        menu.setNavigationBarHidden(true,
+                                    animated: false)
+        present(menu, animated: true, completion: nil)
     }
 }
