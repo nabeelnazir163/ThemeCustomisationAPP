@@ -12,6 +12,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoryBGView: UIView!
     @IBOutlet weak var categoryCV: UICollectionView!
     
+    @IBOutlet var appearanceButtons: [UIButton]!
+    
+    @IBOutlet var formaterButtons: [UIButton]!
+    
     // MARK: - Properties
     var homeViewModel: HomeViewModel!
     private var categoryDelegateAndDataSource: CategegoryCellDelegateAndDataSource?
@@ -21,6 +25,9 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         categoryBGView.addGradient(colors: [.themePink,
                                             .themeBlue])
+        formaterButtons.first?.addGradient(colors: [.themePink,
+                                                    .themeBlue])
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +37,7 @@ class HomeViewController: UIViewController {
     
     private func setupView() {
         setupCollectionView()
+        updateAppeanceButton(for: .wallpaper)
     }
     
     private func setupCollectionView() {
@@ -40,6 +48,49 @@ class HomeViewController: UIViewController {
         categoryDelegateAndDataSource = CategegoryCellDelegateAndDataSource(viewModel: homeViewModel)
         categoryCV.delegate = categoryDelegateAndDataSource
         categoryCV.dataSource = categoryDelegateAndDataSource
+    }
+    
+    private func updateCVFormatterButton(for state: HomeViewModel.Format) {
+        formaterButtons.forEach { button in
+            if button.tag == state.rawValue {
+                button.addGradient(colors: [.themePink,
+                                            .themeBlue])
+            } else {
+                button.removeGradientLayer()
+                button.backgroundColor = .clear
+            }
+        }
+    }
+    
+    private func updateAppeanceButton(for state: HomeViewModel.AppearanceOption) {
+        appearanceButtons.forEach { button in
+            if button.tag == state.rawValue {
+                button.addGradient(colors: [.themePink,
+                                            .themeBlue])
+            } else {
+                button.removeGradientLayer()
+                button.backgroundColor = .clear
+            }
+        }
+    }
+    
+    // MARK: - Actions
+    @IBAction func didUpdateAppearance(_ sender: UIButton) {
+        guard let newState = HomeViewModel.AppearanceOption(rawValue: sender.tag),
+              newState != homeViewModel.selectedAppearance else {
+            return
+        }
+        homeViewModel.updateSelectedAppearance(with: newState)
+        updateAppeanceButton(for: newState)
+    }
+    
+    @IBAction func didChangeFormat(_ sender: UIButton) {
+        guard let newState = HomeViewModel.Format(rawValue: sender.tag),
+              newState != homeViewModel.selectedFormat else {
+            return
+        }
+        homeViewModel.updateFormatStyle(with: newState)
+        updateCVFormatterButton(for: newState)
     }
 }
 

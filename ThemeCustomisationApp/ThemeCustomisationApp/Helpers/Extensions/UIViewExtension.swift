@@ -100,16 +100,21 @@ extension UIView {
 
 extension UIView {
     func addGradient(colors: [UIColor]) {
-            let gradientLayer = CAGradientLayer()
-            gradientLayer.frame = self.bounds
-            gradientLayer.colors = colors.map { $0.cgColor }
-            gradientLayer.startPoint = CGPoint(x: 0, y: 0.5) // Left-center
-            gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)   // Right-center
-            gradientLayer.cornerRadius = self.layer.cornerRadius
-            
-            // Remove previous gradient layers if any
-            self.layer.sublayers?.removeAll(where: { $0 is CAGradientLayer })
-            
-            self.layer.insertSublayer(gradientLayer, at: 0)
-        }
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.name = "gradientLayer"
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5) // Left-center
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)   // Right-center
+        gradientLayer.cornerRadius = self.layer.cornerRadius
+        
+        // Remove previous gradient layers if any
+        self.layer.sublayers?.removeAll(where: { $0 is CAGradientLayer })
+        
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    func removeGradientLayer() {
+        layer.sublayers?.removeAll(where: { $0.name == "gradientLayer" })
+    }
 }
