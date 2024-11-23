@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Commons.shared.isFirstLaunch = true
+//        Commons.shared.isFirstLaunch = true
         Thread.sleep(forTimeInterval: 2.0)
         Commons.shared.navigateWindow(to: Commons.shared.isFirstLaunch ? .tutorial : .home)
         return true

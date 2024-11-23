@@ -40,7 +40,7 @@ final class Commons {
     }
     
     private func navigateToHome() {
-        guard let vc: HomeViewController = UIStoryboard.instantiate(storyboard: .main) else { return }
+        guard let vc: CustomTabBarController = UIStoryboard.instantiate(storyboard: .main) else { return }
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
