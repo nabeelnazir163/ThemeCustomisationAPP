@@ -8,6 +8,7 @@
 import Foundation
 protocol HomeViewModelProtocol: AnyObject {
     func reloadCategories()
+    func reloadMainCV()
 }
 
 class HomeViewModel {
@@ -38,5 +39,6 @@ class HomeViewModel {
     
     func updateFormatStyle(with state: Format) {
         self.selectedFormat = state
+        delegate?.reloadMainCV()
     }
 }

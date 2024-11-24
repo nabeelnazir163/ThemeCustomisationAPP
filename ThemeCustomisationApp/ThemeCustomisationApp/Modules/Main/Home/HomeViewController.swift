@@ -16,9 +16,12 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var formaterButtons: [UIButton]!
     
+    @IBOutlet weak var wallpapersCollectionView: UICollectionView!
+    
     // MARK: - Properties
     var homeViewModel: HomeViewModel!
     private var categoryDelegateAndDataSource: CategegoryCellDelegateAndDataSource?
+    private var wallpaperDelegateAndDataSource: WallPaperCellDelegateAndDataSource?
 
     // MARK: - Life Cycle Methods
     override func viewDidLayoutSubviews() {
@@ -37,7 +40,21 @@ class HomeViewController: UIViewController {
     
     private func setupView() {
         setupCollectionView()
+        setupMainCollectionView()
         updateAppeanceButton(for: .wallpaper)
+    }
+    
+    private func setupMainCollectionView() {
+        wallpapersCollectionView.register(UINib(nibName: WallpaperTileCollectionViewCell.className,
+                                  bundle: nil),
+                            forCellWithReuseIdentifier: WallpaperTileCollectionViewCell.className)
+        wallpapersCollectionView.contentInset.bottom = view.safeAreaInsets.bottom + 90
+        wallpaperDelegateAndDataSource = WallPaperCellDelegateAndDataSource(viewModel: homeViewModel)
+        let layout = PinterestLayout()
+        layout.delegate = wallpaperDelegateAndDataSource
+        wallpapersCollectionView.collectionViewLayout = layout
+        wallpapersCollectionView.delegate = wallpaperDelegateAndDataSource
+        wallpapersCollectionView.dataSource = wallpaperDelegateAndDataSource
     }
     
     private func setupCollectionView() {
@@ -98,5 +115,8 @@ class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewModelProtocol {
     func reloadCategories() {
         categoryCV.reloadData()
+    }
+    func reloadMainCV() {
+        wallpapersCollectionView.reloadData()
     }
 }

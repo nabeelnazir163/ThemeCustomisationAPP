@@ -381,12 +381,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Ln6-ya-pgo">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PO6-Wh-fa8">
-                                <rect key="frame" x="117.66666666666667" y="413" width="157.66666666666663" height="26.333333333333314"/>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13n-Ct-qW0">
                                 <rect key="frame" x="20" y="133" width="353" height="36"/>
                                 <subviews>
@@ -576,22 +570,35 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zHr-fR-iKL">
+                                <rect key="frame" x="20" y="313" width="353" height="539"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Ipj-n2-oid">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zHr-fR-iKL" firstAttribute="trailing" secondItem="13n-Ct-qW0" secondAttribute="trailing" id="2Do-pc-g2m"/>
+                            <constraint firstAttribute="bottom" secondItem="zHr-fR-iKL" secondAttribute="bottom" id="3eO-Br-Nof"/>
                             <constraint firstAttribute="bottom" secondItem="Ln6-ya-pgo" secondAttribute="bottom" id="3hh-7F-FdM"/>
                             <constraint firstItem="t3P-3E-44q" firstAttribute="trailing" secondItem="13n-Ct-qW0" secondAttribute="trailing" id="3uW-aA-8c5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="13n-Ct-qW0" secondAttribute="trailing" constant="20" id="GFM-MR-Jn3"/>
-                            <constraint firstItem="PO6-Wh-fa8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Idq-4b-LSB"/>
-                            <constraint firstItem="PO6-Wh-fa8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nql-0r-XLP"/>
                             <constraint firstItem="13n-Ct-qW0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="Ott-KI-kRR"/>
                             <constraint firstItem="7tI-aS-cBR" firstAttribute="trailing" secondItem="t3P-3E-44q" secondAttribute="trailing" id="X7T-iR-0Zr"/>
                             <constraint firstItem="t3P-3E-44q" firstAttribute="leading" secondItem="13n-Ct-qW0" secondAttribute="leading" id="bLt-Mk-6Sh"/>
                             <constraint firstItem="7tI-aS-cBR" firstAttribute="centerY" secondItem="Aqr-hR-jMw" secondAttribute="centerY" id="dQp-CN-SqL"/>
+                            <constraint firstItem="zHr-fR-iKL" firstAttribute="top" secondItem="Aqr-hR-jMw" secondAttribute="bottom" constant="20" id="dyk-mJ-cTm"/>
                             <constraint firstItem="Aqr-hR-jMw" firstAttribute="top" secondItem="t3P-3E-44q" secondAttribute="bottom" constant="30" id="fu7-sM-qlD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ln6-ya-pgo" secondAttribute="trailing" id="hDg-vh-xVm"/>
                             <constraint firstItem="13n-Ct-qW0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lLp-Zy-Qsu"/>
+                            <constraint firstItem="zHr-fR-iKL" firstAttribute="leading" secondItem="13n-Ct-qW0" secondAttribute="leading" id="nx9-Rc-Caw"/>
                             <constraint firstItem="Aqr-hR-jMw" firstAttribute="leading" secondItem="t3P-3E-44q" secondAttribute="leading" id="prg-nH-ilN"/>
                             <constraint firstItem="t3P-3E-44q" firstAttribute="top" secondItem="13n-Ct-qW0" secondAttribute="bottom" constant="30" id="su3-34-8aH"/>
                             <constraint firstItem="Ln6-ya-pgo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="w2s-eu-IBY"/>
@@ -601,6 +608,7 @@
                     <connections>
                         <outlet property="categoryBGView" destination="13n-Ct-qW0" id="0y1-sk-aKr"/>
                         <outlet property="categoryCV" destination="KO5-Rc-AeV" id="AOg-Qt-cUU"/>
+                        <outlet property="wallpapersCollectionView" destination="zHr-fR-iKL" id="28P-2C-sbY"/>
                         <outletCollection property="appearanceButtons" destination="92q-ru-ggk" collectionClass="NSMutableArray" id="vOm-ZP-RaM"/>
                         <outletCollection property="appearanceButtons" destination="5gJ-dg-YRd" collectionClass="NSMutableArray" id="0EF-vv-Tvv"/>
                         <outletCollection property="appearanceButtons" destination="bB4-Wz-xTC" collectionClass="NSMutableArray" id="reM-DP-A7x"/>
