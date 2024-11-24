@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="123" height="189"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="H9N-4A-qj6">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DummyWallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="H9N-4A-qj6">
                         <rect key="frame" x="0.0" y="0.0" width="123" height="189"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -35,10 +35,13 @@
                 <constraint firstItem="H9N-4A-qj6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jcI-Q2-O64"/>
             </constraints>
             <size key="customSize" width="123" height="189"/>
+            <connections>
+                <outlet property="mainImageView" destination="H9N-4A-qj6" id="L3J-9p-iTv"/>
+            </connections>
             <point key="canvasLocation" x="170.22900763358777" y="68.661971830985919"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Background" width="430" height="932"/>
+        <image name="DummyWallpaper" width="189.66667175292969" height="278.66665649414062"/>
     </resources>
 </document>

@@ -35,6 +35,7 @@ class HomeViewModel {
     
     func updateSelectedAppearance(with state: AppearanceOption) {
         self.selectedAppearance = state
+        self.delegate?.reloadMainCV()
     }
     
     func updateFormatStyle(with state: Format) {

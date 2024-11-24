@@ -608,6 +608,7 @@
                     <connections>
                         <outlet property="categoryBGView" destination="13n-Ct-qW0" id="0y1-sk-aKr"/>
                         <outlet property="categoryCV" destination="KO5-Rc-AeV" id="AOg-Qt-cUU"/>
+                        <outlet property="mainFormatterView" destination="7tI-aS-cBR" id="rtj-dw-IXR"/>
                         <outlet property="wallpapersCollectionView" destination="zHr-fR-iKL" id="28P-2C-sbY"/>
                         <outletCollection property="appearanceButtons" destination="92q-ru-ggk" collectionClass="NSMutableArray" id="vOm-ZP-RaM"/>
                         <outletCollection property="appearanceButtons" destination="5gJ-dg-YRd" collectionClass="NSMutableArray" id="0EF-vv-Tvv"/>
@@ -746,7 +747,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -18,10 +18,12 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var wallpapersCollectionView: UICollectionView!
     
+    @IBOutlet weak var mainFormatterView: UIView!
+    
     // MARK: - Properties
     var homeViewModel: HomeViewModel!
     private var categoryDelegateAndDataSource: CategegoryCellDelegateAndDataSource?
-    private var wallpaperDelegateAndDataSource: WallPaperCellDelegateAndDataSource?
+    private var mainDelegate: HomeMainDelegateAndDataSource?
 
     // MARK: - Life Cycle Methods
     override func viewDidLayoutSubviews() {
@@ -48,13 +50,24 @@ class HomeViewController: UIViewController {
         wallpapersCollectionView.register(UINib(nibName: WallpaperTileCollectionViewCell.className,
                                   bundle: nil),
                             forCellWithReuseIdentifier: WallpaperTileCollectionViewCell.className)
+        
+        wallpapersCollectionView.register(UINib(nibName: IconCollectionViewCell.className,
+                                  bundle: nil),
+                            forCellWithReuseIdentifier: IconCollectionViewCell.className)
+        
         wallpapersCollectionView.contentInset.bottom = view.safeAreaInsets.bottom + 90
-        wallpaperDelegateAndDataSource = WallPaperCellDelegateAndDataSource(viewModel: homeViewModel)
+        mainDelegate = HomeMainDelegateAndDataSource(viewModel: homeViewModel)
+        setCustomLayout(for: homeViewModel.selectedAppearance)
+        wallpapersCollectionView.delegate = mainDelegate
+        wallpapersCollectionView.dataSource = mainDelegate
+    }
+    
+    private func setCustomLayout(for state: HomeViewModel.AppearanceOption) {
         let layout = PinterestLayout()
-        layout.delegate = wallpaperDelegateAndDataSource
+        layout.numberOfColumns = state == .icon ? 1 : 2
+        layout.cellPadding = 5
+        layout.delegate = mainDelegate
         wallpapersCollectionView.collectionViewLayout = layout
-        wallpapersCollectionView.delegate = wallpaperDelegateAndDataSource
-        wallpapersCollectionView.dataSource = wallpaperDelegateAndDataSource
     }
     
     private func setupCollectionView() {
@@ -97,8 +110,11 @@ class HomeViewController: UIViewController {
               newState != homeViewModel.selectedAppearance else {
             return
         }
+        setCustomLayout(for: newState)
         homeViewModel.updateSelectedAppearance(with: newState)
         updateAppeanceButton(for: newState)
+        
+        mainFormatterView.isHidden = newState != .wallpaper
     }
     
     @IBAction func didChangeFormat(_ sender: UIButton) {
@@ -117,6 +133,9 @@ extension HomeViewController: HomeViewModelProtocol {
         categoryCV.reloadData()
     }
     func reloadMainCV() {
+        wallpapersCollectionView.scrollToItem(at: IndexPath(item: 0,
+                                                            section: 0),
+                                              at: .top, animated: false)
         wallpapersCollectionView.reloadData()
     }
 }
