@@ -44,6 +44,7 @@ class CustomTabBarController: UIViewController {
             newViewController = catVC
         case .search:
             guard let searchVC: SearchViewController = UIStoryboard.instantiate(storyboard: .main) else { return }
+            searchVC.searchViewModel = SearchViewModel()
             newViewController = searchVC
         default:
             guard let favVC: FavouritesViewController = UIStoryboard.instantiate(storyboard: .main) else { return }

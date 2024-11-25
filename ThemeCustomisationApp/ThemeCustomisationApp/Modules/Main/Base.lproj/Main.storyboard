@@ -737,28 +737,160 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="dDs-XD-Rm9">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXv-zo-HxL">
-                                <rect key="frame" x="161.33333333333334" y="413.33333333333331" width="70.666666666666657" height="25.666666666666686"/>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QlF-BS-a15">
+                                <rect key="frame" x="20" y="247" width="353" height="605"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5Mi-Qg-mi5">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajy-xO-moV">
+                                <rect key="frame" x="20" y="133" width="353" height="44"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="e4X-HQ-CME">
+                                        <rect key="frame" x="20" y="10" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="Wl3-aQ-Qeb"/>
+                                            <constraint firstAttribute="width" secondItem="e4X-HQ-CME" secondAttribute="height" multiplier="1:1" id="t9N-ad-Mdu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y7-c9-4Hw">
+                                        <rect key="frame" x="56" y="12.333333333333341" width="285" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                                        <color key="textColor" name="SecondaryText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="e4X-HQ-CME" secondAttribute="bottom" constant="10" id="DbN-SL-2JU"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Y7-c9-4Hw" secondAttribute="trailing" constant="12" id="EeY-AA-wgP"/>
+                                    <constraint firstItem="2Y7-c9-4Hw" firstAttribute="leading" secondItem="e4X-HQ-CME" secondAttribute="trailing" constant="12" id="KmC-m4-joD"/>
+                                    <constraint firstItem="2Y7-c9-4Hw" firstAttribute="centerY" secondItem="ajy-xO-moV" secondAttribute="centerY" id="R3b-TU-Yed"/>
+                                    <constraint firstAttribute="height" constant="44" id="Xeb-Lm-Xa0"/>
+                                    <constraint firstItem="e4X-HQ-CME" firstAttribute="leading" secondItem="ajy-xO-moV" secondAttribute="leading" constant="20" id="dwr-42-pN5"/>
+                                    <constraint firstItem="e4X-HQ-CME" firstAttribute="top" secondItem="ajy-xO-moV" secondAttribute="top" constant="10" id="qif-Zl-f7S"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="m4w-aS-BOy">
+                                <rect key="frame" x="20" y="197" width="353" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="miQ-SA-V5k">
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="yas-pa-OCv"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Wallpapers">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="16" name="SFProDisplay-Bold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapCategories:" destination="gGX-gg-3py" eventType="touchUpInside" id="Nwe-DX-oZn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etZ-Fu-IYa">
+                                        <rect key="frame" x="115" y="0.0" width="81" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="32a-Rt-bpE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Categories">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapCategories:" destination="gGX-gg-3py" eventType="touchUpInside" id="aIn-EZ-lUr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JO3-mV-tW6">
+                                        <rect key="frame" x="229" y="0.0" width="32" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="59p-zo-BMA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Icon">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapCategories:" destination="gGX-gg-3py" eventType="touchUpInside" id="5NP-nz-aBv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5b6-Lu-wCD">
+                                        <rect key="frame" x="294" y="0.0" width="59" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="79u-QS-dWE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Themes">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapCategories:" destination="gGX-gg-3py" eventType="touchUpInside" id="VnQ-EQ-MoR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0a-lN-gWO">
+                                <rect key="frame" x="20" y="222" width="82" height="2"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="gam-zK-bja"/>
+                                    <constraint firstAttribute="height" constant="2" id="xaR-22-Xvp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s45-45-n1C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dDs-XD-Rm9" firstAttribute="top" secondItem="axi-M1-dPX" secondAttribute="top" id="68G-y5-PTO"/>
+                            <constraint firstItem="s45-45-n1C" firstAttribute="trailing" secondItem="QlF-BS-a15" secondAttribute="trailing" constant="20" id="7YT-za-ePq"/>
+                            <constraint firstItem="m4w-aS-BOy" firstAttribute="leading" secondItem="s45-45-n1C" secondAttribute="leading" constant="20" id="CvC-NC-WQF"/>
+                            <constraint firstItem="s45-45-n1C" firstAttribute="trailing" secondItem="ajy-xO-moV" secondAttribute="trailing" constant="20" id="EXf-Rl-0Km"/>
+                            <constraint firstItem="ajy-xO-moV" firstAttribute="leading" secondItem="s45-45-n1C" secondAttribute="leading" constant="20" id="EZH-9U-5dW"/>
                             <constraint firstItem="dDs-XD-Rm9" firstAttribute="trailing" secondItem="s45-45-n1C" secondAttribute="trailing" id="KVA-Wn-Kg4"/>
-                            <constraint firstItem="VXv-zo-HxL" firstAttribute="centerX" secondItem="axi-M1-dPX" secondAttribute="centerX" id="N9M-zC-WOF"/>
-                            <constraint firstItem="VXv-zo-HxL" firstAttribute="centerY" secondItem="axi-M1-dPX" secondAttribute="centerY" id="XNt-yC-om1"/>
+                            <constraint firstItem="QlF-BS-a15" firstAttribute="leading" secondItem="s45-45-n1C" secondAttribute="leading" constant="20" id="RGb-Th-4fQ"/>
                             <constraint firstItem="dDs-XD-Rm9" firstAttribute="leading" secondItem="s45-45-n1C" secondAttribute="leading" id="XkR-2o-7rp"/>
                             <constraint firstAttribute="bottom" secondItem="dDs-XD-Rm9" secondAttribute="bottom" id="ZU4-Hb-1oh"/>
+                            <constraint firstItem="QlF-BS-a15" firstAttribute="top" secondItem="m4w-aS-BOy" secondAttribute="bottom" constant="20" id="c2O-I8-VVH"/>
+                            <constraint firstItem="J0a-lN-gWO" firstAttribute="leading" secondItem="miQ-SA-V5k" secondAttribute="leading" id="d27-rl-RRB"/>
+                            <constraint firstItem="ajy-xO-moV" firstAttribute="top" secondItem="s45-45-n1C" secondAttribute="top" constant="74" id="eQ4-AW-Sbf"/>
+                            <constraint firstAttribute="bottom" secondItem="QlF-BS-a15" secondAttribute="bottom" id="g24-Xu-cdP"/>
+                            <constraint firstItem="s45-45-n1C" firstAttribute="trailing" secondItem="m4w-aS-BOy" secondAttribute="trailing" constant="20" id="gQY-ha-VVy"/>
+                            <constraint firstItem="J0a-lN-gWO" firstAttribute="top" secondItem="m4w-aS-BOy" secondAttribute="bottom" constant="-5" id="qWY-HZ-BxA"/>
+                            <constraint firstItem="m4w-aS-BOy" firstAttribute="top" secondItem="ajy-xO-moV" secondAttribute="bottom" constant="20" id="ulZ-CS-uA4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoryBtn" destination="etZ-Fu-IYa" id="xAS-fP-kEy"/>
+                        <outlet property="iconBtn" destination="JO3-mV-tW6" id="uVH-lh-Ebe"/>
+                        <outlet property="searchCollectionView" destination="QlF-BS-a15" id="74U-b7-bUY"/>
+                        <outlet property="sepLeadingConstraint" destination="d27-rl-RRB" id="hgK-sj-rbq"/>
+                        <outlet property="sepWidthConstraint" destination="gam-zK-bja" id="giI-fQ-F89"/>
+                        <outlet property="themeBtn" destination="5b6-Lu-wCD" id="KDJ-Bs-puF"/>
+                        <outlet property="wallpaperBtn" destination="miQ-SA-V5k" id="SzX-zI-NgS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auk-ol-rLX" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1445" y="4"/>
+            <point key="canvasLocation" x="1443.5114503816794" y="3.5211267605633805"/>
         </scene>
         <!--Favourites View Controller-->
         <scene sceneID="DoQ-Me-lEX">
@@ -807,12 +939,16 @@
         <image name="Premimum" width="24" height="24"/>
         <image name="RandomTiles" width="18" height="18"/>
         <image name="Search" width="16" height="16"/>
+        <image name="SearchIcon" width="24" height="24"/>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <namedColor name="AppGray">
             <color red="0.63921568627450975" green="0.63921568627450975" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryText">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryText">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
