@@ -40,6 +40,7 @@ class CustomTabBarController: UIViewController {
             newViewController = homeVC
         case .categories:
             guard let catVC: CategoriesViewController = UIStoryboard.instantiate(storyboard: .main) else { return }
+            catVC.viewModel = CategoriesViewModel()
             newViewController = catVC
         case .search:
             guard let searchVC: SearchViewController = UIStoryboard.instantiate(storyboard: .main) else { return }
