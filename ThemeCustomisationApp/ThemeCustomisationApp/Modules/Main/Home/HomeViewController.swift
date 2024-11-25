@@ -16,6 +16,9 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var formaterButtons: [UIButton]!
     
+    @IBOutlet weak var filterLabel: UILabel!
+    @IBOutlet weak var filterView: FilterView!
+    
     @IBOutlet weak var wallpapersCollectionView: UICollectionView!
     
     @IBOutlet weak var mainFormatterView: UIView!
@@ -30,9 +33,7 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         categoryBGView.addGradient(colors: [.themePink,
                                             .themeBlue])
-        formaterButtons.first?.addGradient(colors: [.themePink,
-                                                    .themeBlue])
-        
+        updateCVFormatterButton(for: homeViewModel.selectedFormat)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,8 @@ class HomeViewController: UIViewController {
     private func setupView() {
         setupCollectionView()
         setupMainCollectionView()
+        filterView.setupView()
+        filterView.delegate = self
         updateAppeanceButton(for: .wallpaper)
     }
     
@@ -82,11 +85,11 @@ class HomeViewController: UIViewController {
     
     private func updateCVFormatterButton(for state: HomeViewModel.Format) {
         formaterButtons.forEach { button in
+            button.removeGradientLayer()
             if button.tag == state.rawValue {
                 button.addGradient(colors: [.themePink,
                                             .themeBlue])
             } else {
-                button.removeGradientLayer()
                 button.backgroundColor = .clear
             }
         }
@@ -106,6 +109,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func didUpdateAppearance(_ sender: UIButton) {
+        filterView.isHidden = true
         guard let newState = HomeViewModel.AppearanceOption(rawValue: sender.tag),
               newState != homeViewModel.selectedAppearance else {
             return
@@ -118,6 +122,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func didChangeFormat(_ sender: UIButton) {
+        filterView.isHidden = true
         guard let newState = HomeViewModel.Format(rawValue: sender.tag),
               newState != homeViewModel.selectedFormat else {
             return
@@ -125,17 +130,29 @@ class HomeViewController: UIViewController {
         homeViewModel.updateFormatStyle(with: newState)
         updateCVFormatterButton(for: newState)
     }
+
+    @IBAction func didSelectFilterView(_ sender: Any) {
+        filterView.isHidden.toggle()
+    }
 }
 
 // MARK: - HomeViewModelProtocol
 extension HomeViewController: HomeViewModelProtocol {
     func reloadCategories() {
         categoryCV.reloadData()
+        filterView.isHidden = true
     }
     func reloadMainCV() {
         wallpapersCollectionView.scrollToItem(at: IndexPath(item: 0,
                                                             section: 0),
                                               at: .top, animated: false)
         wallpapersCollectionView.reloadData()
+    }
+}
+
+// MARK: - FilterViewProtocol
+extension HomeViewController: FilterViewProtocol {
+    func filterView(_ filterView: FilterView, didSelect item: FilterView.FilterOption) {
+        filterLabel.text = item.rawValue.capitalized
     }
 }

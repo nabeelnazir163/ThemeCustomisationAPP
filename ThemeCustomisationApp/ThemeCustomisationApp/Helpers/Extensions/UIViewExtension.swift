@@ -100,6 +100,7 @@ extension UIView {
 
 extension UIView {
     func addGradient(colors: [UIColor]) {
+        removeGradientLayer()
         let gradientLayer = CAGradientLayer()
         gradientLayer.name = "gradientLayer"
         gradientLayer.frame = self.bounds
