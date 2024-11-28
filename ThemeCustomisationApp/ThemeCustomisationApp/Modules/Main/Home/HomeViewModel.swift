@@ -11,22 +11,22 @@ protocol HomeViewModelProtocol: AnyObject {
     func reloadMainCV()
 }
 
-class HomeViewModel {
-    enum AppearanceOption: Int {
-        case wallpaper = 0, icon, theme
-    }
-    
-    enum Format: Int {
-        case randomTile, grid
-    }
-    
+enum AppearanceOption: Int {
+    case wallpaper = 0, icon, theme
+}
+
+enum Format: Int {
+    case randomTile, grid
+}
+
+class HomeViewModel: ViewModelProtocol {
     private(set) var categories = ["Top", "Tech", "Colors", "B&W", "Nature", "Others"]
     private(set) var selectedIndex = 0
     
     weak var delegate: HomeViewModelProtocol?
     
-    private(set) var selectedAppearance: AppearanceOption = .wallpaper
-    private(set) var selectedFormat: Format = .randomTile
+    var selectedAppearance: AppearanceOption = .wallpaper
+    var selectedFormat: Format = .randomTile
     
     func updateSelectedIndex(with index: Int) {
         selectedIndex = index

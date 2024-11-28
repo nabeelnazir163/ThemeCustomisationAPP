@@ -6,11 +6,15 @@
 //
 
 import UIKit
+protocol ViewModelProtocol {
+    var selectedAppearance: AppearanceOption { get set}
+    var selectedFormat: Format { get set }
+}
 
 class HomeMainDelegateAndDataSource: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, PinterestLayoutDelegate {
-    private let viewModel: HomeViewModel
+    private let viewModel: ViewModelProtocol
     
-    init(viewModel: HomeViewModel) {
+    init(viewModel: ViewModelProtocol) {
         self.viewModel = viewModel
     }
     

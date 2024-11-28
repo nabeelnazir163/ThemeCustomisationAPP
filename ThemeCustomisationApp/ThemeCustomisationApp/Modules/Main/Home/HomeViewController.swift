@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
         wallpapersCollectionView.dataSource = mainDelegate
     }
     
-    private func setCustomLayout(for state: HomeViewModel.AppearanceOption) {
+    private func setCustomLayout(for state: AppearanceOption) {
         let layout = PinterestLayout()
         layout.numberOfColumns = state == .icon ? 1 : 2
         layout.cellPadding = 5
@@ -83,7 +83,7 @@ class HomeViewController: UIViewController {
         categoryCV.dataSource = categoryDelegateAndDataSource
     }
     
-    private func updateCVFormatterButton(for state: HomeViewModel.Format) {
+    private func updateCVFormatterButton(for state: Format) {
         formaterButtons.forEach { button in
             button.removeGradientLayer()
             if button.tag == state.rawValue {
@@ -95,7 +95,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func updateAppeanceButton(for state: HomeViewModel.AppearanceOption) {
+    private func updateAppeanceButton(for state: AppearanceOption) {
         appearanceButtons.forEach { button in
             if button.tag == state.rawValue {
                 button.addGradient(colors: [.themePink,
@@ -110,7 +110,7 @@ class HomeViewController: UIViewController {
     // MARK: - Actions
     @IBAction func didUpdateAppearance(_ sender: UIButton) {
         filterView.isHidden = true
-        guard let newState = HomeViewModel.AppearanceOption(rawValue: sender.tag),
+        guard let newState = AppearanceOption(rawValue: sender.tag),
               newState != homeViewModel.selectedAppearance else {
             return
         }
@@ -123,7 +123,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func didChangeFormat(_ sender: UIButton) {
         filterView.isHidden = true
-        guard let newState = HomeViewModel.Format(rawValue: sender.tag),
+        guard let newState = Format(rawValue: sender.tag),
               newState != homeViewModel.selectedFormat else {
             return
         }
