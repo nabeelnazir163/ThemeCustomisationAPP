@@ -27,6 +27,7 @@ extension UIStoryboard {
         case main = "Main"
         case tutorial = "TutorialView"
         case sideMenu = "SideMenu"
+        case help = "Help"
        
         var name: String {
             rawValue

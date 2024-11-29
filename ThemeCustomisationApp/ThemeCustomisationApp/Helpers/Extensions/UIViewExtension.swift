@@ -118,4 +118,9 @@ extension UIView {
     func removeGradientLayer() {
         layer.sublayers?.removeAll(where: { $0.name == "gradientLayer" })
     }
+    
+    func roundTopRightCorner(cornerRadius: CGFloat) {
+        layer.cornerRadius = cornerRadius
+        layer.maskedCorners = [.layerMinXMinYCorner]
+    }
 }

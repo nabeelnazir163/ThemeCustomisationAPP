@@ -69,4 +69,14 @@ class CustomTabBarController: UIViewController {
                                     animated: false)
         present(menu, animated: true, completion: nil)
     }
+    
+    @IBAction func didTapHelpButton(_ sender: Any) {
+        guard let helpVC: HelpCenterViewController = UIStoryboard.instantiate(storyboard: .help) else { return }
+        let navVC = UINavigationController(rootViewController: helpVC)
+        navVC.setNavigationBarHidden(true,
+                                    animated: false)
+        navVC.modalPresentationStyle = .overCurrentContext
+        navVC.modalTransitionStyle = .crossDissolve
+        present(navVC, animated: true, completion: nil)
+    }
 }

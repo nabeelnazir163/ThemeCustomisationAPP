@@ -8,11 +8,13 @@
 import UIKit
 
 class SideMenuViewController: UIViewController {
-
+    // MARK: - Outlets
+    @IBOutlet weak var mainView: UIView!
+    
+    // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        mainView.roundTopRightCorner(cornerRadius: 60)
     }
 
     // MARK: - Actions
