@@ -34,6 +34,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="BackButton"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8Sf-Pg-1It"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIH-ah-biZ">
                                 <rect key="frame" x="76" y="82.666666666666671" width="51" height="28.666666666666671"/>
@@ -172,6 +175,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="BackButton"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="1ND-4L-Bl7" eventType="touchUpInside" id="4G4-d0-RUo"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to get the app icons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAU-7g-P8a">
                                 <rect key="frame" x="76" y="82.666666666666671" width="268.33333333333331" height="28.666666666666671"/>
@@ -558,6 +564,145 @@
             </objects>
             <point key="canvasLocation" x="760" y="-2"/>
         </scene>
+        <!--Wallpaper Help View Controller-->
+        <scene sceneID="S9n-mC-mAM">
+            <objects>
+                <viewController storyboardIdentifier="WallpaperHelpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hhh-76-v2y" customClass="WallpaperHelpViewController" customModule="ThemeCustomisationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="skt-0L-sW0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISa-bL-dCs">
+                                <rect key="frame" x="20" y="79" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="Vkg-EY-YlB"/>
+                                    <constraint firstAttribute="width" secondItem="ISa-bL-dCs" secondAttribute="height" multiplier="1:1" id="gDF-c2-btW"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="BackButton"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="hhh-76-v2y" eventType="touchUpInside" id="WGS-RN-5CA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to get the Wallpapers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuI-TJ-yIG">
+                                <rect key="frame" x="76" y="82.666666666666671" width="285.66666666666669" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
+                                <color key="textColor" name="PrimaryText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ug-s1-jbx">
+                                <rect key="frame" x="20" y="131.33333333333331" width="353" height="686.66666666666674"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="KrR-OV-Aa7">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="920"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SSx-NX-soG">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="299.33333333333331"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grP-TQ-da0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="38.333333333333336"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="1. Once a wallpaper is saved, select the photo and tap the ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="PrimaryText"/>
+                                                                    <font key="NSFont" size="16" name="SFProDisplay-Regular"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="Share button">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="1" green="0.71372549019607845" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="16" name="SFProDisplay-Regular"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WallpaperInfoOne" translatesAutoresizingMaskIntoConstraints="NO" id="PCN-c0-liv">
+                                                        <rect key="frame" x="0.0" y="58.333333333333314" width="353" height="241"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="s2y-M4-7HE">
+                                                <rect key="frame" x="0.0" y="329.33333333333337" width="353" height="280.33333333333337"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAz-rZ-SCU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="19.333333333333332"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="2. Scroll down and tap ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="PrimaryText"/>
+                                                                    <font key="NSFont" size="16" name="SFProDisplay-Regular"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="Use as Wallpaper">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="1" green="0.71372549019607845" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="16" name="SFProDisplay-Regular"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WallpaperInfoTwo" translatesAutoresizingMaskIntoConstraints="NO" id="tPB-hm-XNO">
+                                                        <rect key="frame" x="0.0" y="39.333333333333314" width="353" height="241"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="24R-gP-iHE">
+                                                <rect key="frame" x="0.0" y="639.66666666666663" width="353" height="280.33333333333337"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdg-Cw-DcQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="19.333333333333332"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="3. Tap done and choose Set as wallpaper pair">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="PrimaryText"/>
+                                                                    <font key="NSFont" size="16" name="SFProDisplay-Regular"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WallpaperInfoThree" translatesAutoresizingMaskIntoConstraints="NO" id="cnN-eK-82y">
+                                                        <rect key="frame" x="0.0" y="39.333333333333371" width="353" height="241"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="KrR-OV-Aa7" secondAttribute="trailing" id="9M8-F3-68L"/>
+                                    <constraint firstItem="KrR-OV-Aa7" firstAttribute="width" secondItem="1ug-s1-jbx" secondAttribute="width" id="DCD-eQ-CZV"/>
+                                    <constraint firstItem="KrR-OV-Aa7" firstAttribute="top" secondItem="1ug-s1-jbx" secondAttribute="top" id="jvV-nW-gcf"/>
+                                    <constraint firstAttribute="bottom" secondItem="KrR-OV-Aa7" secondAttribute="bottom" id="mci-9J-t4Y"/>
+                                    <constraint firstItem="KrR-OV-Aa7" firstAttribute="leading" secondItem="1ug-s1-jbx" secondAttribute="leading" id="pnj-Kk-YoI"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="R6D-2k-X8A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FuI-TJ-yIG" firstAttribute="centerY" secondItem="ISa-bL-dCs" secondAttribute="centerY" id="4WD-az-Lh6"/>
+                            <constraint firstItem="R6D-2k-X8A" firstAttribute="trailing" secondItem="1ug-s1-jbx" secondAttribute="trailing" constant="20" id="88U-Dq-RrL"/>
+                            <constraint firstItem="1ug-s1-jbx" firstAttribute="leading" secondItem="R6D-2k-X8A" secondAttribute="leading" constant="20" id="BQB-Ne-h9P"/>
+                            <constraint firstItem="FuI-TJ-yIG" firstAttribute="leading" secondItem="ISa-bL-dCs" secondAttribute="trailing" constant="20" id="ETa-6J-alS"/>
+                            <constraint firstItem="ISa-bL-dCs" firstAttribute="top" secondItem="R6D-2k-X8A" secondAttribute="top" constant="20" id="e7X-V2-m7z"/>
+                            <constraint firstItem="1ug-s1-jbx" firstAttribute="top" secondItem="FuI-TJ-yIG" secondAttribute="bottom" constant="20" id="iBl-hC-C5c"/>
+                            <constraint firstItem="R6D-2k-X8A" firstAttribute="bottom" secondItem="1ug-s1-jbx" secondAttribute="bottom" id="ixt-Uj-gzO"/>
+                            <constraint firstItem="ISa-bL-dCs" firstAttribute="leading" secondItem="R6D-2k-X8A" secondAttribute="leading" constant="20" id="wWk-jw-e0Z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PY5-nK-R5R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1447" y="6"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BackButton" width="36" height="36"/>
@@ -573,6 +718,9 @@
         <image name="IconTenInfo" width="390" height="173"/>
         <image name="IconThirdInfo" width="390" height="76"/>
         <image name="IconTwelveInfo" width="390" height="232"/>
+        <image name="WallpaperInfoOne" width="124" height="241"/>
+        <image name="WallpaperInfoThree" width="124" height="241"/>
+        <image name="WallpaperInfoTwo" width="139" height="241"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <namedColor name="PrimaryText">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

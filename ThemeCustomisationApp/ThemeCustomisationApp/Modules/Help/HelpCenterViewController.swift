@@ -34,5 +34,13 @@ class HelpCenterViewController: UIViewController {
     }
     
     @IBAction func didTapWallpapersView(_ sender: Any) {
+        guard let vc: WallpaperHelpViewController = UIStoryboard.instantiate(storyboard: .help) else {
+            return
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func didTapBackButton(_ sender: Any) {
+        dismiss(animated: true)
     }
 }
