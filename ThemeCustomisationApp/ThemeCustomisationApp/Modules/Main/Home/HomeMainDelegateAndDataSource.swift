@@ -11,8 +11,13 @@ protocol ViewModelProtocol {
     var selectedFormat: Format { get set }
 }
 
+protocol HomeMainDataSourceProtocol: AnyObject {
+    func collectionView(didSelectItemAt indexPath: IndexPath)
+}
+
 class HomeMainDelegateAndDataSource: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, PinterestLayoutDelegate {
     private let viewModel: ViewModelProtocol
+    weak var delegate: HomeMainDataSourceProtocol?
     
     init(viewModel: ViewModelProtocol) {
         self.viewModel = viewModel
@@ -68,6 +73,6 @@ class HomeMainDelegateAndDataSource: NSObject, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        delegate?.collectionView(didSelectItemAt: indexPath)
     }
 }

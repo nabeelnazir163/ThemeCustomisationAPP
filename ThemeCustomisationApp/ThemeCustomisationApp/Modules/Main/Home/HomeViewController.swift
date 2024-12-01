@@ -60,6 +60,7 @@ class HomeViewController: UIViewController {
         
         wallpapersCollectionView.contentInset.bottom = view.safeAreaInsets.bottom + 90
         mainDelegate = HomeMainDelegateAndDataSource(viewModel: homeViewModel)
+        mainDelegate?.delegate = self
         setCustomLayout(for: homeViewModel.selectedAppearance)
         wallpapersCollectionView.delegate = mainDelegate
         wallpapersCollectionView.dataSource = mainDelegate
@@ -154,5 +155,28 @@ extension HomeViewController: HomeViewModelProtocol {
 extension HomeViewController: FilterViewProtocol {
     func filterView(_ filterView: FilterView, didSelect item: FilterView.FilterOption) {
         filterLabel.text = item.rawValue.capitalized
+    }
+}
+
+// MARK: - HomeMainDataSourceProtocol
+extension HomeViewController: HomeMainDataSourceProtocol {
+    func collectionView(didSelectItemAt indexPath: IndexPath) {
+        if homeViewModel.selectedAppearance == .wallpaper {
+            guard let vc: PreviewWallpaperViewController = UIStoryboard.instantiate(storyboard: .wallpaper) else {
+                return
+            }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.viewModel = PreviewWallpaperViewModel(indexToScroll: indexPath.row)
+            present(vc, animated: true)
+        } else if homeViewModel.selectedAppearance == .theme {
+            guard let vc: PreviewThemeViewController = UIStoryboard.instantiate(storyboard: .theme) else {
+                return
+            }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.viewModel = PreviewThemeViewModel()
+            present(vc, animated: true)
+        }
     }
 }
