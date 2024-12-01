@@ -119,8 +119,16 @@ extension UIView {
         layer.sublayers?.removeAll(where: { $0.name == "gradientLayer" })
     }
     
-    func roundTopRightCorner(cornerRadius: CGFloat) {
-        layer.cornerRadius = cornerRadius
-        layer.maskedCorners = [.layerMinXMinYCorner]
+    func addDropShadow(
+        color: UIColor = UIColor.black,
+        offset: CGSize = CGSize(width: 0, height: 1),
+        opacity: CGFloat = 0.5,
+        radius: CGFloat = 5
+    ) {
+        layer.shadowColor = color.cgColor // Shadow color
+        layer.shadowOffset = offset // Shadow offset
+        layer.shadowOpacity = Float(opacity) // Shadow opacity
+        layer.shadowRadius = radius // Shadow blur radius
+        layer.masksToBounds = false
     }
 }

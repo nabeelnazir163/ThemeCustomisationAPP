@@ -186,10 +186,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7f0-o2-vv3">
-                                <rect key="frame" x="20" y="131.33333333333326" width="353" height="686.66666666666652"/>
+                                <rect key="frame" x="20" y="131.33333333333326" width="353" height="686.66666666666697"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="fAq-xE-fwP">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="2228"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="2277.3333333333335"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BFy-5z-wnX">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="129.33333333333334"/>
@@ -534,6 +534,19 @@
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdC-le-O4y">
+                                                <rect key="frame" x="0.0" y="2258" width="353" height="19.333333333333485"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="That’s it">
+                                                        <attributes>
+                                                            <color key="NSColor" red="1" green="0.71372549019607845" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="16" name="SFProDisplay-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -594,7 +607,7 @@
                                 <rect key="frame" x="20" y="131.33333333333331" width="353" height="686.66666666666674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="KrR-OV-Aa7">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="920"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="969.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SSx-NX-soG">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="299.33333333333331"/>
@@ -673,6 +686,19 @@
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1s-If-j5f">
+                                                <rect key="frame" x="0.0" y="949.99999999999989" width="353" height="19.333333333333371"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="That’s it">
+                                                        <attributes>
+                                                            <color key="NSColor" red="1" green="0.71372549019607845" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="16" name="SFProDisplay-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
                                 </subviews>

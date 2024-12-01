@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class HelpCenterViewController: UIViewController {
     // MARK: - Outlets
@@ -41,6 +42,10 @@ class HelpCenterViewController: UIViewController {
     }
     
     @IBAction func didTapBackButton(_ sender: Any) {
-        dismiss(animated: true)
+        if navigationController?.isKind(of: SideMenuNavigationController.self) ?? false {
+            navigationController?.popViewController(animated: true)
+        } else {
+            dismiss(animated: true)
+        }
     }
 }
