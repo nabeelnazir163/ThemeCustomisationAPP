@@ -81,4 +81,14 @@ class CustomTabBarController: UIViewController {
         navVC.modalTransitionStyle = .crossDissolve
         present(navVC, animated: true, completion: nil)
     }
+    
+    @IBAction func didTapNotification(_ sender: Any) {
+        guard let notificationVC: NotificationViewController = UIStoryboard.instantiate(storyboard: .notification) else { return }
+        let navVC = UINavigationController(rootViewController: notificationVC)
+        navVC.setNavigationBarHidden(true,
+                                    animated: false)
+        navVC.modalPresentationStyle = .overCurrentContext
+        navVC.modalTransitionStyle = .crossDissolve
+        present(navVC, animated: true, completion: nil)
+    }
 }
