@@ -46,7 +46,7 @@ extension NotificationViewController: UITableViewDataSource {
                                                        for: indexPath) as? NotificationTableViewCell else {
             return NotificationTableViewCell()
         }
-        cell.mainView.addDropShadow(color: .appGray.withAlphaComponent(0.5))
+        cell.configureView()
         return cell
     }
 }

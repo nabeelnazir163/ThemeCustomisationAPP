@@ -66,6 +66,8 @@ class CustomTabBarController: UIViewController {
         menu.leftSide = true
         menu.menuWidth = view.frame.width
         menu.dismissOnPush = true
+        menu.enableTapToDismissGesture = false
+        menu.enableSwipeToDismissGesture = false
         sideMenu.sideMenuViewModel = SideMenuViewModel()
         menu.setNavigationBarHidden(true,
                                     animated: false)

@@ -99,7 +99,7 @@ extension UIView {
 }
 
 extension UIView {
-    func addGradient(colors: [UIColor]) {
+    func addGradient(colors: [UIColor] = [.themePink, .themeBlue]) {
         removeGradientLayer()
         let gradientLayer = CAGradientLayer()
         gradientLayer.name = "gradientLayer"
@@ -130,5 +130,12 @@ extension UIView {
         layer.shadowOpacity = Float(opacity) // Shadow opacity
         layer.shadowRadius = radius // Shadow blur radius
         layer.masksToBounds = false
+    }
+    
+    func updateState(to focus: Bool) {
+        borderWidth = 1
+        borderColor = focus ? .themePink : .border
+        focus ? removeGradientLayer() : addGradient(colors: [.themePink.withAlphaComponent(0.06),
+                                                             .themeBlue.withAlphaComponent(0.06)])
     }
 }
