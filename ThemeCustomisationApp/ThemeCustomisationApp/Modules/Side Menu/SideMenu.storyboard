@@ -74,6 +74,9 @@
                                                         <real key="value" value="6"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didTapGetAccessButton:" destination="y0m-9h-WG3" eventType="touchUpInside" id="SP1-SG-b5u"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

@@ -52,6 +52,17 @@ class SideMenuViewController: UIViewController {
     @IBAction func didTapClose(_ sender: Any) {
         dismiss(animated: true)
     }
+    
+    @IBAction func didTapGetAccessButton(_ sender: Any) {
+        if sideMenuViewModel.currentState == .loggedOut {
+            guard let vc: OnboardingViewController = UIStoryboard.instantiate(storyboard: .authentication) else {
+                return
+            }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            present(vc, animated: true)
+        }
+    }
 }
 
 // MARK: - TableView Delegate and Datasource

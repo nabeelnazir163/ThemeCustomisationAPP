@@ -31,6 +31,7 @@ extension UIStoryboard {
         case wallpaper = "Wallpaper"
         case theme = "Theme"
         case notification = "Notification"
+        case authentication = "Authentication"
        
         var name: String {
             rawValue
