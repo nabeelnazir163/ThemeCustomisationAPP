@@ -1,13 +1,13 @@
 //
-//  FavouritesViewModel.swift
+//  AbstractViewModel.swift
 //  ThemeCustomisationApp
 //
-//  Created by Nabeel Nazir on 28/11/2024.
+//  Created by Nabeel Nazir on 05/12/2024.
 //
 
 import Foundation
 
-final class FavouritesViewModel: ViewModelProtocol {
+final class AbstractViewModel: ViewModelProtocol {    
     var selectedAppearance: AppearanceOption = .wallpaper
     var selectedFormat: Format = .randomTile
     

@@ -170,12 +170,20 @@ extension HomeViewController: HomeMainDataSourceProtocol {
             vc.viewModel = PreviewWallpaperViewModel(indexToScroll: indexPath.row)
             present(vc, animated: true)
         } else if homeViewModel.selectedAppearance == .theme {
-            guard let vc: PreviewThemeViewController = UIStoryboard.instantiate(storyboard: .theme) else {
+            guard let vc: PreviewThemeViewController = UIStoryboard.instantiate(storyboard: .preview) else {
                 return
             }
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             vc.viewModel = PreviewThemeViewModel()
+            present(vc, animated: true)
+        } else {
+            guard let vc: PreviewIconViewController = UIStoryboard.instantiate(storyboard: .preview) else {
+                return
+            }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.viewModel = PreviewIconViewModel()
             present(vc, animated: true)
         }
     }

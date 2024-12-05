@@ -158,6 +158,98 @@
             </objects>
             <point key="canvasLocation" x="84" y="-2"/>
         </scene>
+        <!--Preview Icon View Controller-->
+        <scene sceneID="V5A-q4-bhv">
+            <objects>
+                <viewController storyboardIdentifier="PreviewIconViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N9h-Dk-43W" customClass="PreviewIconViewController" customModule="ThemeCustomisationApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kiq-cf-H7N">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0T-BL-NWt">
+                                <rect key="frame" x="20" y="79" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="l0T-BL-NWt" secondAttribute="height" multiplier="1:1" id="Ypn-jj-gQS"/>
+                                    <constraint firstAttribute="width" constant="36" id="yfZ-eN-G6u"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="BackButton"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="N9h-Dk-43W" eventType="touchUpInside" id="dnU-Wn-OD8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5N-oB-fqt">
+                                <rect key="frame" x="76" y="82.666666666666671" width="59.666666666666657" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="24"/>
+                                <color key="textColor" name="PrimaryText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqj-61-51C">
+                                <rect key="frame" x="0.0" y="730" width="393" height="122"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSk-kT-WYQ">
+                                        <rect key="frame" x="20" y="20" width="353" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="LZJ-zR-i5C"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="INSTALL SELECTED ICONS">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WSk-kT-WYQ" secondAttribute="trailing" constant="20" id="FUI-SM-nMq"/>
+                                    <constraint firstItem="WSk-kT-WYQ" firstAttribute="leading" secondItem="qqj-61-51C" secondAttribute="leading" constant="20" id="a7U-tA-QBH"/>
+                                    <constraint firstItem="WSk-kT-WYQ" firstAttribute="top" secondItem="qqj-61-51C" secondAttribute="top" constant="20" id="iSF-Md-mda"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7iq-Iv-Jgf">
+                                <rect key="frame" x="20" y="135" width="353" height="595"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pV8-ym-3nk">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BCB-gS-jCQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g5N-oB-fqt" firstAttribute="centerY" secondItem="l0T-BL-NWt" secondAttribute="centerY" id="4sf-hD-WNF"/>
+                            <constraint firstItem="BCB-gS-jCQ" firstAttribute="trailing" secondItem="qqj-61-51C" secondAttribute="trailing" id="89y-dS-9CX"/>
+                            <constraint firstItem="qqj-61-51C" firstAttribute="top" secondItem="7iq-Iv-Jgf" secondAttribute="bottom" id="EbC-F7-aij"/>
+                            <constraint firstItem="g5N-oB-fqt" firstAttribute="leading" secondItem="l0T-BL-NWt" secondAttribute="trailing" constant="20" id="IhH-5O-91E"/>
+                            <constraint firstItem="l0T-BL-NWt" firstAttribute="leading" secondItem="BCB-gS-jCQ" secondAttribute="leading" constant="20" id="JHe-lf-IwD"/>
+                            <constraint firstItem="BCB-gS-jCQ" firstAttribute="bottom" secondItem="WSk-kT-WYQ" secondAttribute="bottom" constant="20" id="Qis-ju-eRz"/>
+                            <constraint firstItem="qqj-61-51C" firstAttribute="leading" secondItem="kiq-cf-H7N" secondAttribute="leading" id="R4F-gm-drL"/>
+                            <constraint firstItem="BCB-gS-jCQ" firstAttribute="trailing" secondItem="7iq-Iv-Jgf" secondAttribute="trailing" constant="20" id="VTC-Bj-W0j"/>
+                            <constraint firstItem="7iq-Iv-Jgf" firstAttribute="top" secondItem="l0T-BL-NWt" secondAttribute="bottom" constant="20" id="c2T-Cu-amH"/>
+                            <constraint firstItem="l0T-BL-NWt" firstAttribute="top" secondItem="BCB-gS-jCQ" secondAttribute="top" constant="20" id="c5v-Id-QcD"/>
+                            <constraint firstAttribute="bottom" secondItem="qqj-61-51C" secondAttribute="bottom" id="cCz-Zj-uYN"/>
+                            <constraint firstItem="7iq-Iv-Jgf" firstAttribute="leading" secondItem="BCB-gS-jCQ" secondAttribute="leading" constant="20" id="j5y-nK-ggI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="7iq-Iv-Jgf" id="O7a-Zv-W9X"/>
+                        <outlet property="installBtn" destination="WSk-kT-WYQ" id="Mh1-Jx-kVL"/>
+                        <outlet property="installBtnSuperView" destination="qqj-61-51C" id="43T-C8-0gO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lSA-ag-TFu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="-2"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BackButton" width="36" height="36"/>

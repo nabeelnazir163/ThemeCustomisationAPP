@@ -53,4 +53,11 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
         CGSize(width: collectionView.frame.width,
                height: 150)
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vc: AbstractDetailViewController = UIStoryboard.instantiate(storyboard: .abstract) else { return }
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle  = .crossDissolve
+        vc.viewModel = AbstractViewModel()
+        present(vc, animated: true)
+    }
 }

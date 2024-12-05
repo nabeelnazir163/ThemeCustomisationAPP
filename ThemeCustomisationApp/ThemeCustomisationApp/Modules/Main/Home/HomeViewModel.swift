@@ -6,9 +6,9 @@
 //
 
 import Foundation
-protocol HomeViewModelProtocol: AnyObject {
-    func reloadCategories()
-    func reloadMainCV()
+@objc protocol HomeViewModelProtocol: AnyObject {
+    @objc optional func reloadCategories()
+    @objc optional func reloadMainCV()
 }
 
 enum AppearanceOption: Int {
@@ -30,16 +30,16 @@ class HomeViewModel: ViewModelProtocol {
     
     func updateSelectedIndex(with index: Int) {
         selectedIndex = index
-        delegate?.reloadCategories()
+        delegate?.reloadCategories?()
     }
     
     func updateSelectedAppearance(with state: AppearanceOption) {
         self.selectedAppearance = state
-        self.delegate?.reloadMainCV()
+        self.delegate?.reloadMainCV?()
     }
     
     func updateFormatStyle(with state: Format) {
         self.selectedFormat = state
-        delegate?.reloadMainCV()
+        delegate?.reloadMainCV?()
     }
 }

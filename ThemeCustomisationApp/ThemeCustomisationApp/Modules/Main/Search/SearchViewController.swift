@@ -137,4 +137,40 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return 330
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if searchViewModel.selectedType == .wallpapers {
+            guard let vc: PreviewWallpaperViewController = UIStoryboard.instantiate(storyboard: .wallpaper) else {
+                return
+            }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.viewModel = PreviewWallpaperViewModel(indexToScroll: indexPath.row)
+            present(vc, animated: true)
+        } else if searchViewModel.selectedType == .themes {
+            guard let vc: PreviewThemeViewController = UIStoryboard.instantiate(storyboard: .preview) else {
+                return
+            }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.viewModel = PreviewThemeViewModel()
+            present(vc, animated: true)
+        } else if searchViewModel.selectedType == .categories {
+            guard let vc: AbstractDetailViewController = UIStoryboard.instantiate(storyboard: .abstract) else {
+                return
+            }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.viewModel = AbstractViewModel()
+            present(vc, animated: true)
+        } else {
+            guard let vc: PreviewIconViewController = UIStoryboard.instantiate(storyboard: .preview) else {
+                return
+            }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.viewModel = PreviewIconViewModel()
+            present(vc, animated: true)
+        }
+    }
 }

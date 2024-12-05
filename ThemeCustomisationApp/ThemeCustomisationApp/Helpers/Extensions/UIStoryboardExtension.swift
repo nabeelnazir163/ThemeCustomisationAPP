@@ -29,8 +29,9 @@ extension UIStoryboard {
         case sideMenu = "SideMenu"
         case help = "Help"
         case wallpaper = "Wallpaper"
-        case theme = "Theme"
+        case preview = "Preview"
         case notification = "Notification"
+        case abstract = "Abstract"
         case authentication = "Authentication"
        
         var name: String {

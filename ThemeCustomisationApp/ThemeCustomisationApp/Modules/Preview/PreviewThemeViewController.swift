@@ -39,18 +39,32 @@ class PreviewThemeViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-        let layout = UPCarouselFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSizeMake(collectionView.frame.width * 0.75,
-                                     collectionView.frame.height)
-        collectionView.collectionViewLayout = layout
-        
         collectionView.register(UINib(nibName: PreviewWallpaperCollectionViewCell.className,
                                       bundle: nil),
                                 forCellWithReuseIdentifier: PreviewWallpaperCollectionViewCell.className)
+        collectionView.register(UINib(nibName: SingleIconCollectionViewCell.className,
+                                      bundle: nil),
+                                forCellWithReuseIdentifier: SingleIconCollectionViewCell.className)
         
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    
+    private func setupUpLayout() {
+        if viewModel.selectedThemeType == .wallpaper {
+            let layout = UPCarouselFlowLayout()
+            layout.scrollDirection = .horizontal
+            layout.itemSize = CGSizeMake(collectionView.frame.width * 0.75,
+                                         collectionView.frame.height)
+            collectionView.collectionViewLayout = layout
+        } else {
+            collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        }
+    }
+    
+    private func updateStateButtonTitle() {
+        saveBtn.setTitle(viewModel.selectedThemeType == .wallpaper ? "SAVE" : "INSTALL SELECTED ICONS",
+                         for: .normal)
     }
     
     // MARK: - Actions
@@ -62,6 +76,7 @@ class PreviewThemeViewController: UIViewController {
         guard let newState = PreviewThemeViewModel.ThemeType(rawValue: sender.tag),
               newState != viewModel.selectedThemeType else { return }
         viewModel.updateType(for: newState)
+        setupUpLayout()
         
         sepLeadingConstraint.constant = sender.frame.origin.x
         sepWidthConstraint.constant = sender.frame.width
@@ -69,6 +84,7 @@ class PreviewThemeViewController: UIViewController {
                                                   section: 0),
                                     at: .top, animated: false)
         collectionView.reloadData()
+        updateStateButtonTitle()
     }
 }
 
@@ -79,12 +95,34 @@ extension PreviewThemeViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PreviewWallpaperCollectionViewCell.className,
-            for: indexPath
-        ) as? PreviewWallpaperCollectionViewCell else {
-            return PreviewWallpaperCollectionViewCell()
+        if viewModel.selectedThemeType == .wallpaper {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: PreviewWallpaperCollectionViewCell.className,
+                for: indexPath
+            ) as? PreviewWallpaperCollectionViewCell else {
+                return PreviewWallpaperCollectionViewCell()
+            }
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: SingleIconCollectionViewCell.className,
+                for: indexPath
+            ) as? SingleIconCollectionViewCell else {
+                return SingleIconCollectionViewCell()
+            }
+            let isSelected = viewModel.selectedIconIndeces.contains(indexPath.row)
+            cell.configureCell(isSelected: isSelected)
+            return cell
         }
-        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard viewModel.selectedThemeType == .icons else { return }
+        if let index = viewModel.selectedIconIndeces.firstIndex(of: indexPath.row) {
+            viewModel.removeSelected(from: index)
+        } else {
+            viewModel.addToSelection(item: indexPath.row)
+        }
+        collectionView.reloadData()
     }
 }
