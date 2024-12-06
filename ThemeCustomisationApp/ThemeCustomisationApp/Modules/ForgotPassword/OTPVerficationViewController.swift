@@ -80,6 +80,9 @@ class OTPVerficationViewController: UIViewController {
     
     @IBAction func didTapResendButton(_ sender: Any) {
         viewModel.setupTimer()
+        
+        resentButton.isButtonEnabled = false
+        confirmButton.isButtonEnabled = true
     }
 }
 

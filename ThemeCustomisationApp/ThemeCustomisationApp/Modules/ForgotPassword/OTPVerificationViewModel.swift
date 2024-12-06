@@ -23,6 +23,7 @@ final class OTPVerificationViewModel {
     }
     
     func setupTimer() {
+        countDownTime = 60
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
             guard let self else { return }
             countDownTime -= 1
