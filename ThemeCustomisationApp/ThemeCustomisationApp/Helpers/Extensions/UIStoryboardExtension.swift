@@ -33,6 +33,7 @@ extension UIStoryboard {
         case notification = "Notification"
         case abstract = "Abstract"
         case authentication = "Authentication"
+        case forgotPassword = "ForgotPassword"
        
         var name: String {
             rawValue

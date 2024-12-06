@@ -10,7 +10,7 @@ import UIKit
 
 final class Commons {
     enum RootWindow {
-        case tutorial, home
+        case tutorial, home, onboarding
     }
     
     static let shared = Commons()
@@ -28,6 +28,8 @@ final class Commons {
                 navigateToTutorials()
             case .home:
                 navigateToHome()
+            case .onboarding:
+                navigateToOnboarding()
             }
         }
     }
@@ -41,6 +43,12 @@ final class Commons {
     
     private func navigateToHome() {
         guard let vc: CustomTabBarController = UIStoryboard.instantiate(storyboard: .main) else { return }
+        UIApplication.shared.windows.first?.rootViewController = vc
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
+    private func navigateToOnboarding() {
+        guard let vc: ForgotPasswordViewController = UIStoryboard.instantiate(storyboard: .forgotPassword) else { return }
         UIApplication.shared.windows.first?.rootViewController = vc
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }

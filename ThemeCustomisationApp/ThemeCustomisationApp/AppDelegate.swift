@@ -14,14 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Commons.shared.navigateWindow(to: Commons.shared.isFirstLaunch ? .tutorial : .home)
-        
-        for family in UIFont.familyNames {
-            print("Family: \(family)")
-            for font in UIFont.fontNames(forFamilyName: family) {
-                print(" - \(font)")
-            }
-        }
-        
         return true
     }
 

@@ -608,6 +608,9 @@
                                                         <state key="normal" title="Forgot Your Password">
                                                             <color key="titleColor" name="DestructiveRed"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="didTapForgotPassword:" destination="CpE-DN-I5r" eventType="touchUpInside" id="DQb-HG-e0k"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="dWs-v7-6ub">
                                                         <rect key="frame" x="0.0" y="190" width="353" height="217"/>
