@@ -119,6 +119,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accessLabel" destination="R0R-53-jfG" id="VQb-u5-1KK"/>
                         <outlet property="getAccessButton" destination="sbk-1y-bCf" id="BAn-oB-3PD"/>
                         <outlet property="premimumView" destination="OVi-Ik-RV4" id="mNw-KJ-yEn"/>
                         <outlet property="tableView" destination="YFa-Dq-09T" id="cUB-5S-Xh6"/>

@@ -16,6 +16,9 @@ class BasicInformationViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     
+    // MARK: - Properties
+    var isFromSideMenu = false
+    
     // MARK: - Life Cycle Methods
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -24,6 +27,7 @@ class BasicInformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        skipButton.isHidden = isFromSideMenu
         setupViews()
         addTapGesture()
     }
@@ -56,10 +60,18 @@ class BasicInformationViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func didTapBack(_ sender: Any) {
-        dismiss(animated: true)
+        if isFromSideMenu {
+            navigationController?.popViewController(animated: true)
+        } else {
+            dismiss(animated: true)
+        }
     }
     
     @IBAction func didTapContinueButton(_ sender: Any) {
+        if isFromSideMenu {
+            navigationController?.popViewController(animated: true)
+            return
+        }
         guard let vc: PopupViewController = UIStoryboard.instantiate(storyboard: .popup) else { return }
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext

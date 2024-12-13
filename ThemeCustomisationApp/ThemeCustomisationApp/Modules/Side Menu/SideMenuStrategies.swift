@@ -12,6 +12,8 @@ enum SideMenuItemType {
 }
 
 enum SideMenu: String {
+    case editProfile = "Edit Profile"
+    case changePassword = "Change Password"
     case notification = "Notification"
     case privacyPolicy = "Privacy & Policy"
     case aboutUs = "About Us"
@@ -31,6 +33,19 @@ protocol SideMenuStrategies {
 final class LoggedOutStrategy: SideMenuStrategies {
     func getSidemenuItems() -> [SideMenuItem] {
         [
+            SideMenuItem(icon: .sideMenuNotification, item: .notification, type: .switch),
+            SideMenuItem(icon: .sideMenuPrivacyPolicy, item: .privacyPolicy, type: .details),
+            SideMenuItem(icon: .sideMenuAboutUs, item: .aboutUs, type: .details),
+            SideMenuItem(icon: .sideMenuHelpCenter, item: .helpCenter, type: .details)
+        ]
+    }
+}
+
+final class LoggedInStrategy: SideMenuStrategies {
+    func getSidemenuItems() -> [SideMenuItem] {
+        [
+            SideMenuItem(icon: .editProfileIcon, item: .editProfile, type: .details),
+            SideMenuItem(icon: .changePasswordIcon, item: .changePassword, type: .details),
             SideMenuItem(icon: .sideMenuNotification, item: .notification, type: .switch),
             SideMenuItem(icon: .sideMenuPrivacyPolicy, item: .privacyPolicy, type: .details),
             SideMenuItem(icon: .sideMenuAboutUs, item: .aboutUs, type: .details),

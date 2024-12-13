@@ -11,6 +11,7 @@ class SideMenuViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var premimumView: UIView!
     @IBOutlet weak var getAccessButton: UIButton!
+    @IBOutlet weak var accessLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,6 +31,8 @@ class SideMenuViewController: UIViewController {
     }
     
     private func setupViews() {
+        accessLabel.text = sideMenuViewModel.accessTitleLabel
+        getAccessButton.setTitle(sideMenuViewModel.accessButtonTitle, for: .normal)
         setupPremiumView()
         setupTableView()
     }
@@ -54,10 +57,15 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func didTapGetAccessButton(_ sender: Any) {
-        if sideMenuViewModel.currentState == .loggedOut {
+        if Commons.shared.userState == .loggedOut {
             guard let vc: OnboardingViewController = UIStoryboard.instantiate(storyboard: .authentication) else {
                 return
             }
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overCurrentContext
+            present(vc, animated: true)
+        } else if Commons.shared.userState == .loggedIn {
+            guard let vc: SubscriptionViewController = UIStoryboard.instantiate(storyboard: .premium) else { return }
             vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .overCurrentContext
             present(vc, animated: true)
@@ -82,6 +90,11 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = sideMenuViewModel.items[indexPath.row]
         switch item.item {
+        case .editProfile:
+            guard let vc: BasicInformationViewController = UIStoryboard.instantiate(storyboard: .authentication) else { return }
+            vc.isFromSideMenu = true
+            navigationController?.pushViewController(vc,
+                                                     animated: true)
         case .helpCenter:
             guard let vc: HelpCenterViewController = UIStoryboard.instantiate(storyboard: .help) else { return }
             navigationController?.pushViewController(vc,
