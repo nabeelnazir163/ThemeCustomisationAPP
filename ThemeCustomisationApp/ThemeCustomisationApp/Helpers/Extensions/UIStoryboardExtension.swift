@@ -36,6 +36,7 @@ extension UIStoryboard {
         case forgotPassword = "ForgotPassword"
         case popup = "Popup"
         case premium = "Premium"
+        case profile = "Profile"
        
         var name: String {
             rawValue

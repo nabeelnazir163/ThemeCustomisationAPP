@@ -95,6 +95,10 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
             vc.isFromSideMenu = true
             navigationController?.pushViewController(vc,
                                                      animated: true)
+        case .changePassword:
+            guard let vc: UpdatePasswordViewController = UIStoryboard.instantiate(storyboard: .profile) else { return }
+            navigationController?.pushViewController(vc,
+                                                     animated: true)
         case .helpCenter:
             guard let vc: HelpCenterViewController = UIStoryboard.instantiate(storyboard: .help) else { return }
             navigationController?.pushViewController(vc,
