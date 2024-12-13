@@ -13,12 +13,16 @@ final class Commons {
         case tutorial, home, onboarding
     }
     
+    enum UserState {
+        case loggedOut, loggedIn, subscribed
+    }
+    
     static let shared = Commons()
     @UserDefaultStorage(key: Constants.UserDefaultConstants.isFirstLogin,
                         defaultValue: true)
     var isFirstLaunch: Bool
     
-    var isUserLoggedIn = false
+    var userState = UserState.loggedOut
     
     private init() { }
 

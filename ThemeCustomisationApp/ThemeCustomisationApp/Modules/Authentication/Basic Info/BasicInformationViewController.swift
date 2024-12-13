@@ -60,9 +60,26 @@ class BasicInformationViewController: UIViewController {
     }
     
     @IBAction func didTapContinueButton(_ sender: Any) {
+        guard let vc: PopupViewController = UIStoryboard.instantiate(storyboard: .popup) else { return }
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.type = .profileUpdate
+        vc.callback = { [weak self] in
+            guard let self else { return }
+            openPremimumScreen()
+        }
+        present(vc, animated: true)
+    }
+    
+    private func openPremimumScreen() {
+        guard let vc: SubscriptionViewController = UIStoryboard.instantiate(storyboard: .premium) else { return }
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true)
     }
     
     @IBAction func didTapSkipButton(_ sender: Any) {
+        openPremimumScreen()
     }
 }
 

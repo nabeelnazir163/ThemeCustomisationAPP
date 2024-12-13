@@ -13,25 +13,25 @@ class CustomTabBarController: UIViewController {
     
     // MARK: - Properties
     private var currentViewController: UIViewController?
-
+    
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomTabBar()
         switchToViewController(for: .home)
     }
-
+    
     private func setupCustomTabBar() {
         customTabbar.updateTabbarView(for: .home)
         customTabbar.buttonTapped = { [weak self] state in
             self?.switchToViewController(for: state)
         }
     }
-
+    
     private func switchToViewController(for state: CustomTabBar.TabbarState) {
         currentViewController?.view.removeFromSuperview()
         currentViewController?.removeFromParent()
-
+        
         let newViewController: UIViewController
         switch state {
         case .home:
@@ -51,7 +51,7 @@ class CustomTabBarController: UIViewController {
             favVC.viewModel = FavouritesViewModel()
             newViewController = favVC
         }
-
+        
         addChild(newViewController)
         view.insertSubview(newViewController.view, belowSubview: customTabbar)
         newViewController.view.frame = view.bounds
@@ -78,7 +78,7 @@ class CustomTabBarController: UIViewController {
         guard let helpVC: HelpCenterViewController = UIStoryboard.instantiate(storyboard: .help) else { return }
         let navVC = UINavigationController(rootViewController: helpVC)
         navVC.setNavigationBarHidden(true,
-                                    animated: false)
+                                     animated: false)
         navVC.modalPresentationStyle = .overCurrentContext
         navVC.modalTransitionStyle = .crossDissolve
         present(navVC, animated: true, completion: nil)
@@ -88,9 +88,16 @@ class CustomTabBarController: UIViewController {
         guard let notificationVC: NotificationViewController = UIStoryboard.instantiate(storyboard: .notification) else { return }
         let navVC = UINavigationController(rootViewController: notificationVC)
         navVC.setNavigationBarHidden(true,
-                                    animated: false)
+                                     animated: false)
         navVC.modalPresentationStyle = .overCurrentContext
         navVC.modalTransitionStyle = .crossDissolve
         present(navVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapPremiumButton(_ sender: UIButton) {
+        guard let subscriptionVC: SubscriptionViewController = UIStoryboard.instantiate(storyboard: .premium) else { return }
+        subscriptionVC.modalPresentationStyle = .overCurrentContext
+        subscriptionVC.modalTransitionStyle = .crossDissolve
+        present(subscriptionVC, animated: true, completion: nil)
     }
 }
