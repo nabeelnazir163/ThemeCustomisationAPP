@@ -85,6 +85,13 @@ class RegisterViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    @IBAction func didTapRegister(_ sender: Any) {
+        guard let vc: BasicInformationViewController = UIStoryboard.instantiate(storyboard: .authentication) else { return }
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true)
+    }
+    
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true)
     }

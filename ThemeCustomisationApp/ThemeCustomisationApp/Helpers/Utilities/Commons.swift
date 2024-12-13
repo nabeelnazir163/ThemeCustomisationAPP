@@ -18,6 +18,8 @@ final class Commons {
                         defaultValue: true)
     var isFirstLaunch: Bool
     
+    var isUserLoggedIn = false
+    
     private init() { }
 
     func navigateWindow(to view: RootWindow) {
