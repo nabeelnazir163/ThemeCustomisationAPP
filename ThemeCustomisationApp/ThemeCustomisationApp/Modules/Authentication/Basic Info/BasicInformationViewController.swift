@@ -85,6 +85,7 @@ class BasicInformationViewController: UIViewController {
     
     private func openPremimumScreen() {
         guard let vc: SubscriptionViewController = UIStoryboard.instantiate(storyboard: .premium) else { return }
+        vc.subscriptionViewModel = SubscriptionViewModel()
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true)

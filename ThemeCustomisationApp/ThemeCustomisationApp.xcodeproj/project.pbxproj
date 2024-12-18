@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420991502D1343DE00376B08 /* SubscriptionHandler in Frameworks */ = {isa = PBXBuildFile; productRef = 4209914F2D1343DE00376B08 /* SubscriptionHandler */; };
+		420D46D92D135CC9009A0806 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420D46D82D135CC9009A0806 /* StoreKit.framework */; };
 		4234CFAC2CF21C04005D9328 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 4234CFAB2CF21C04005D9328 /* SideMenu */; };
 		42877B312D11E825007B0560 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42877B302D11E825007B0560 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		420D46D82D135CC9009A0806 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		42CE46642CF0B9A500C5934D /* ThemeCustomisationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThemeCustomisationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -43,16 +46,27 @@
 			files = (
 				4234CFAC2CF21C04005D9328 /* SideMenu in Frameworks */,
 				42877B312D11E825007B0560 /* Alamofire in Frameworks */,
+				420991502D1343DE00376B08 /* SubscriptionHandler in Frameworks */,
+				420D46D92D135CC9009A0806 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		420D46D72D135CC9009A0806 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				420D46D82D135CC9009A0806 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		42CE465B2CF0B9A500C5934D = {
 			isa = PBXGroup;
 			children = (
 				42CE46662CF0B9A500C5934D /* ThemeCustomisationApp */,
+				420D46D72D135CC9009A0806 /* Frameworks */,
 				42CE46652CF0B9A500C5934D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +101,7 @@
 			packageProductDependencies = (
 				4234CFAB2CF21C04005D9328 /* SideMenu */,
 				42877B302D11E825007B0560 /* Alamofire */,
+				4209914F2D1343DE00376B08 /* SubscriptionHandler */,
 			);
 			productName = ThemeCustomisationApp;
 			productReference = 42CE46642CF0B9A500C5934D /* ThemeCustomisationApp.app */;
@@ -119,6 +134,7 @@
 			packageReferences = (
 				4234CFAA2CF21C04005D9328 /* XCRemoteSwiftPackageReference "SideMenu" */,
 				42877B2F2D11E825007B0560 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4209914E2D1343DE00376B08 /* XCLocalSwiftPackageReference "../../SubscriptionHandler/SubscriptionHandler" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 42CE46652CF0B9A500C5934D /* Products */;
@@ -367,6 +383,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		4209914E2D1343DE00376B08 /* XCLocalSwiftPackageReference "../../SubscriptionHandler/SubscriptionHandler" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../SubscriptionHandler/SubscriptionHandler;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		4234CFAA2CF21C04005D9328 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -387,6 +410,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4209914F2D1343DE00376B08 /* SubscriptionHandler */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SubscriptionHandler;
+		};
 		4234CFAB2CF21C04005D9328 /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4234CFAA2CF21C04005D9328 /* XCRemoteSwiftPackageReference "SideMenu" */;

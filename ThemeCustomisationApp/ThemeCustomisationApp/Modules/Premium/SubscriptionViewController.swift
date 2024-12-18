@@ -12,6 +12,9 @@ class SubscriptionViewController: UIViewController {
     @IBOutlet weak var trialView: UIView!
     @IBOutlet weak var continueButton: UIButton!
     
+    // MARK: - Properties
+    var subscriptionViewModel: SubscriptionViewModel!
+    
     // MARK: - Life Cycle Methods
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -22,7 +25,7 @@ class SubscriptionViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        subscriptionViewModel.onViewDidLoad()
     }
     
     // MARK: - Actions

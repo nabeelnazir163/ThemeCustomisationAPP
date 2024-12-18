@@ -96,6 +96,7 @@ class CustomTabBarController: UIViewController {
     
     @IBAction func didTapPremiumButton(_ sender: UIButton) {
         guard let subscriptionVC: SubscriptionViewController = UIStoryboard.instantiate(storyboard: .premium) else { return }
+        subscriptionVC.subscriptionViewModel = SubscriptionViewModel()
         subscriptionVC.modalPresentationStyle = .overCurrentContext
         subscriptionVC.modalTransitionStyle = .crossDissolve
         present(subscriptionVC, animated: true, completion: nil)
