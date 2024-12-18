@@ -17,6 +17,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    // MARK: - Properties
+    var loginViewModel: LoginViewModel!
+    
     // MARK: - Life Cycle Methods
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -30,6 +33,8 @@ class LoginViewController: UIViewController {
         
         setupTextFields()
         setupHeadings()
+        
+        loginViewModel.onLogin(with: "admin@example.com", password: "&ali%czsz$ear#")
     }
     
     private func setupTextFields() {

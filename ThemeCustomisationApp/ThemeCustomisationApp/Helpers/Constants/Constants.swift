@@ -13,7 +13,7 @@ final class Constants {
     }
     
     struct Server {
-        static let BASEURL = ""
+        static let BASEURL = "http://194.233.77.44:8090/"
     }
     
     struct APIParameterKey {

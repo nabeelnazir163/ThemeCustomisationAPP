@@ -9,8 +9,8 @@ import Foundation
 import Alamofire
 
 struct APIResponse<T: Codable>: Codable {
-    let response: T
-    let statusCode: Int
+    let data: T?
+    let code: Int
 }
 
 class BaseApi {

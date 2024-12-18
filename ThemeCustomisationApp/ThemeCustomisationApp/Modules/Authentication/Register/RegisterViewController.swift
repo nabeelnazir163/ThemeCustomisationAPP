@@ -82,6 +82,7 @@ class RegisterViewController: UIViewController {
         guard let vc: LoginViewController = UIStoryboard.instantiate(storyboard: .authentication) else { return }
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
+        vc.loginViewModel = LoginViewModel()
         present(vc, animated: true)
     }
     

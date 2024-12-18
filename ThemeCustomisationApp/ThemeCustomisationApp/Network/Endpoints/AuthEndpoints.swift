@@ -20,7 +20,7 @@ enum AuthEndpoint: APIConfiguration {
     var path: String {
         switch self {
         case .login:
-            return "/login"
+            return "auth/login"
         }
     }
     
