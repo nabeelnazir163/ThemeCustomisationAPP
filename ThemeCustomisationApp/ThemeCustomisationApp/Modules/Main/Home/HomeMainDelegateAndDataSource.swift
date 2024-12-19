@@ -9,6 +9,8 @@ import UIKit
 protocol ViewModelProtocol {
     var selectedAppearance: AppearanceOption { get set}
     var selectedFormat: Format { get set }
+    
+    func getNumberOfItems() -> Int
 }
 
 protocol HomeMainDataSourceProtocol: AnyObject {
@@ -24,7 +26,7 @@ class HomeMainDelegateAndDataSource: NSObject, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        15
+        viewModel.getNumberOfItems()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

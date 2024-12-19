@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class CategegoryCellDelegateAndDataSource: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
+class CategegoryCellDelegateAndDataSource: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private let viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
@@ -22,7 +22,7 @@ class CategegoryCellDelegateAndDataSource: NSObject, UICollectionViewDelegate, U
                                                             for: indexPath) as? HomeCategoryCollectionViewCell else {
             return HomeCategoryCollectionViewCell()
         }
-        cell.configureView(title: viewModel.categories[indexPath.item],
+        cell.configureView(category: viewModel.categories[indexPath.item],
                            isSelected: viewModel.selectedIndex == indexPath.item)
         return cell
     }

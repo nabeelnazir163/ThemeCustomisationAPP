@@ -18,8 +18,9 @@ class HomeCategoryCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configureView(title: String, isSelected: Bool) {
+    func configureView(category: CategoryItem,
+                       isSelected: Bool) {
         mainView.backgroundColor = isSelected ? .primaryText : .appGray
-        titleLabel.text = title
+        titleLabel.text = category.name
     }
 }

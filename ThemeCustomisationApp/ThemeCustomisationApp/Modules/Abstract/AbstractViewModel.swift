@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AbstractViewModel: ViewModelProtocol {    
+final class AbstractViewModel: ViewModelProtocol {
     var selectedAppearance: AppearanceOption = .wallpaper
     var selectedFormat: Format = .randomTile
     
@@ -16,5 +16,9 @@ final class AbstractViewModel: ViewModelProtocol {
     func updateSelectedAppearance(with state: AppearanceOption) {
         self.selectedAppearance = state
         self.delegate?.reloadMainCV?()
+    }
+    
+    func getNumberOfItems() -> Int {
+        15
     }
 }

@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     var homeViewModel: HomeViewModel!
     private var categoryDelegateAndDataSource: CategegoryCellDelegateAndDataSource?
     private var mainDelegate: HomeMainDelegateAndDataSource?
-
+    
     // MARK: - Life Cycle Methods
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -38,6 +38,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeViewModel.delegate = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [weak self] in
+            guard let self else { return }
+            homeViewModel.onViewDidLoad()
+        })
         setupView()
     }
     
@@ -144,10 +148,11 @@ extension HomeViewController: HomeViewModelProtocol {
         filterView.isHidden = true
     }
     func reloadMainCV() {
+//        guard wallpapersCollectionView.visibleCells.count > 0 else { return }
+        wallpapersCollectionView.reloadData()
         wallpapersCollectionView.scrollToItem(at: IndexPath(item: 0,
                                                             section: 0),
                                               at: .top, animated: false)
-        wallpapersCollectionView.reloadData()
     }
 }
 

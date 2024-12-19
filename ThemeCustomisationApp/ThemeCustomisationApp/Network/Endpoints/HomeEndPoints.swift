@@ -1,54 +1,50 @@
 //
-//  AuthEndpoints.swift
+//  HomeEndPoints.swift
 //  ThemeCustomisationApp
 //
-//  Created by Nabeel Nazir on 17/12/2024.
+//  Created by Nabeel Nazir on 19/12/2024.
 //
 
 import Foundation
 import Alamofire
 
-enum AuthEndpoint: APIConfiguration {
-    case login(email: String, password: String)
+enum HomeEndPoints: APIConfiguration {
+    case getWallpapers(pageNumber: Int?, pageSize: Int)
+    case getCategories
+    
     var method: HTTPMethod {
         switch self {
-        case .login:
-            return .post
+        case .getWallpapers, .getCategories:
+            return .get
         }
     }
     
     var path: String {
         switch self {
-        case .login:
-            return "auth/login"
+        case .getWallpapers(let page, let pageSize):
+            return "api/wallpapers?page=\(page ?? 0)&page_size=\(pageSize)"
+        case .getCategories:
+            return "api/categories"
         }
     }
     
     var parameters: Parameters? {
         switch self {
-        case .login(let email, let password):
-            var param: [String: Any] = [:]
-            param = [Constants.APIParameterKey.email: email,
-                     Constants.APIParameterKey.password: password
-                    ]
-            return param
+        case .getWallpapers, .getCategories:
+            return nil
         }
     }
     
     var headers: HTTPHeaders? {
         let headerDict: HTTPHeaders = self.getDefaultHeaders()
         switch self {
-        case .login:
+        case .getWallpapers, .getCategories:
             return headerDict
         }
     }
     
     func asURLRequest() throws -> URLRequest {
-        var completeURL = ""
-        switch self {
-        case .login:
-            completeURL = Constants.Server.BASEURL + path
-        }
+        var completeURL = Constants.Server.BASEURL + path
         var urlRequest = URLRequest(url: URL(string: completeURL)!)
         urlRequest.httpMethod = method.rawValue
         if let httpHeaders = headers {
@@ -65,5 +61,4 @@ enum AuthEndpoint: APIConfiguration {
         }
         return urlRequest
     }
-
 }

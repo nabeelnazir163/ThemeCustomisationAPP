@@ -13,6 +13,8 @@ struct APIResponse<T: Codable>: Codable {
     let code: Int
 }
 
+typealias APICompletion<T: Codable> = (AFDataResponse<APIResponse<T>>) -> Void
+
 class BaseApi {
     @discardableResult
     static func performRequest<T: Decodable>(endpoint: APIConfiguration,

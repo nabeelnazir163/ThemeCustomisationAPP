@@ -17,4 +17,8 @@ final class FavouritesViewModel: ViewModelProtocol {
         self.selectedAppearance = state
         self.delegate?.reloadMainCV?()
     }
+    
+    func getNumberOfItems() -> Int {
+        15
+    }
 }

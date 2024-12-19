@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		420991502D1343DE00376B08 /* SubscriptionHandler in Frameworks */ = {isa = PBXBuildFile; productRef = 4209914F2D1343DE00376B08 /* SubscriptionHandler */; };
 		420D46D92D135CC9009A0806 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420D46D82D135CC9009A0806 /* StoreKit.framework */; };
+		420EF5092D14885800A986CC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 420EF5082D14885800A986CC /* Kingfisher */; };
 		4234CFAC2CF21C04005D9328 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 4234CFAB2CF21C04005D9328 /* SideMenu */; };
 		42877B312D11E825007B0560 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42877B302D11E825007B0560 /* Alamofire */; };
+		4290B3642D148ED9004801F3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4290B3632D148ED9004801F3 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +45,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4290B3642D148ED9004801F3 /* Lottie in Frameworks */,
 				4234CFAC2CF21C04005D9328 /* SideMenu in Frameworks */,
 				42877B312D11E825007B0560 /* Alamofire in Frameworks */,
-				420991502D1343DE00376B08 /* SubscriptionHandler in Frameworks */,
 				420D46D92D135CC9009A0806 /* StoreKit.framework in Frameworks */,
+				420EF5092D14885800A986CC /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +103,8 @@
 			packageProductDependencies = (
 				4234CFAB2CF21C04005D9328 /* SideMenu */,
 				42877B302D11E825007B0560 /* Alamofire */,
-				4209914F2D1343DE00376B08 /* SubscriptionHandler */,
+				420EF5082D14885800A986CC /* Kingfisher */,
+				4290B3632D148ED9004801F3 /* Lottie */,
 			);
 			productName = ThemeCustomisationApp;
 			productReference = 42CE46642CF0B9A500C5934D /* ThemeCustomisationApp.app */;
@@ -134,7 +137,8 @@
 			packageReferences = (
 				4234CFAA2CF21C04005D9328 /* XCRemoteSwiftPackageReference "SideMenu" */,
 				42877B2F2D11E825007B0560 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				4209914E2D1343DE00376B08 /* XCLocalSwiftPackageReference "../../SubscriptionHandler/SubscriptionHandler" */,
+				420EF5072D14885800A986CC /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4290B3622D148ED9004801F3 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 42CE46652CF0B9A500C5934D /* Products */;
@@ -383,14 +387,15 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		4209914E2D1343DE00376B08 /* XCLocalSwiftPackageReference "../../SubscriptionHandler/SubscriptionHandler" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../SubscriptionHandler/SubscriptionHandler;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
+		420EF5072D14885800A986CC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.3;
+			};
+		};
 		4234CFAA2CF21C04005D9328 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
@@ -407,12 +412,21 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		4290B3622D148ED9004801F3 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4209914F2D1343DE00376B08 /* SubscriptionHandler */ = {
+		420EF5082D14885800A986CC /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = SubscriptionHandler;
+			package = 420EF5072D14885800A986CC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		4234CFAB2CF21C04005D9328 /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -423,6 +437,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42877B2F2D11E825007B0560 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		4290B3632D148ED9004801F3 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4290B3622D148ED9004801F3 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
